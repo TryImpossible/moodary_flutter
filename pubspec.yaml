@@ -57,6 +57,8 @@ dev_dependencies:
   riverpod_lint: ^2.3.10
   freezed: ^2.5.2
   json_serializable: ^6.8.0
+  commitlint_cli: ^0.8.1
+  husky: ^0.1.7
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

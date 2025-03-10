@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+if command -v fvm &> /dev/null; then
+  fvm dart run commitlint_cli --edit "$1"
+else
+  dart run commitlint_cli --edit "$1"
+fi
+
