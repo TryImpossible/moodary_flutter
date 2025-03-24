@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:moodary_flutter/config/l10n/l10n.dart';
-import 'package:moodary_flutter/core/l10n/l10n.dart';
-import 'package:moodary_flutter/features/settings/presentation/language_setting/language_setting_page.dart';
+import 'package:moodary_flutter/core/l10n/l10n_manager.dart';
+import 'package:moodary_flutter/core/l10n/l10n_state.dart';
+import 'package:moodary_flutter/features/settings/presentation/language_setting/language_setting_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: App()));
@@ -14,8 +15,7 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final Locale locale =
-        ref.watch(l10nProvider.select((L10nState state) => state.locale));
+    final L10nState l10nState = ref.watch(l10nManagerProvider);
     return MaterialApp(
       onGenerateTitle: (BuildContext context) => S.of(context).app_name,
       theme: ThemeData(
@@ -28,9 +28,9 @@ class App extends ConsumerWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      supportedLocales: S.delegate.supportedLocales,
-      locale: locale,
-      home: LanguageSettingPage(),
+      supportedLocales: l10nState.supportedLocales,
+      locale: l10nState.locale,
+      home: LanguageSettingScreen(),
     );
   }
 }

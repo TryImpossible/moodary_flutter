@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:moodary_flutter/config/l10n/l10n.dart';
-import 'package:moodary_flutter/core/l10n/l10n.dart';
+import 'package:moodary_flutter/core/l10n/l10n_manager.dart';
+import 'package:moodary_flutter/core/l10n/l10n_state.dart';
 
-class LanguageSettingPage extends StatelessWidget {
-  const LanguageSettingPage({super.key});
+class LanguageSettingScreen extends StatelessWidget {
+  const LanguageSettingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +29,6 @@ class LanguageSettingPage extends StatelessWidget {
   }
 }
 
-class _LanguageSettingAppBar extends StatelessWidget
-    implements PreferredSizeWidget {
-  const _LanguageSettingAppBar({super.key});
-
-  @override
-  Size get preferredSize => const Size.fromHeight(kToolbarHeight);
-
-  @override
-  Widget build(BuildContext context) {
-    return AppBar(
-      title: Text(S.current.mulit_language),
-      centerTitle: true,
-    );
-  }
-}
-
 class _LanguageSettingCell extends ConsumerWidget {
   const _LanguageSettingCell({
     super.key,
@@ -54,12 +39,12 @@ class _LanguageSettingCell extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final Locale current =
-        ref.watch(l10nProvider.select((L10nState state) => state.locale));
+    final Locale current = ref
+        .watch(l10nManagerProvider.select((L10nState state) => state.locale));
     return ListTile(
       title: Text(locale.toLanguageText()),
       selected: current == locale,
-      onTap: () => ref.read(l10nProvider.notifier).change(locale),
+      onTap: () => ref.read(l10nManagerProvider.notifier).change(locale),
     );
   }
 }
