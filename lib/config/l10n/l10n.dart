@@ -79,6 +79,11 @@ class S {
   String get mulit_language {
     return Intl.message('Language', name: 'mulit_language', desc: '', args: []);
   }
+
+  /// `Theme`
+  String get theme {
+    return Intl.message('Theme', name: 'theme', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
