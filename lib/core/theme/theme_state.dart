@@ -241,8 +241,14 @@ class ThemeState with _$ThemeState {
       ),
       listTileTheme: ListTileThemeData(
         selectedColor: color.primary,
-        titleTextStyle: TextStyle(color: color.listTileTitle),
-        subtitleTextStyle: TextStyle(color: color.listTileSubtitle),
+        titleTextStyle: TextStyle(
+          fontSize: 16,
+          color: color.listTileTitle,
+        ),
+        subtitleTextStyle: TextStyle(
+          fontSize: 14,
+          color: color.listTileSubtitle,
+        ),
       ),
       textButtonTheme: TextButtonThemeData(
         style: ButtonStyle(
