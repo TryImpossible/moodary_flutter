@@ -75,6 +75,11 @@ class S {
     );
   }
 
+  /// `Settings`
+  String get settings {
+    return Intl.message('Settings', name: 'settings', desc: '', args: []);
+  }
+
   /// `Language`
   String get mulit_language {
     return Intl.message('Language', name: 'mulit_language', desc: '', args: []);

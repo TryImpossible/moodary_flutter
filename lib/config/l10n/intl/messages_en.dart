@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "app_name": MessageLookupByLibrary.simpleMessage("moodary"),
     "log_mood": MessageLookupByLibrary.simpleMessage("log mood"),
     "mulit_language": MessageLookupByLibrary.simpleMessage("Language"),
+    "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "theme": MessageLookupByLibrary.simpleMessage("Theme"),
     "write_journal": MessageLookupByLibrary.simpleMessage("write journal"),
   };

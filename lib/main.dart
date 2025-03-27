@@ -6,8 +6,7 @@ import 'package:moodary_flutter/core/l10n/l10n_manager.dart';
 import 'package:moodary_flutter/core/l10n/l10n_state.dart';
 import 'package:moodary_flutter/core/theme/theme_manager.dart';
 import 'package:moodary_flutter/core/theme/theme_state.dart';
-import 'package:moodary_flutter/features/settings/presentation/language_setting/language_setting_screen.dart';
-import 'package:moodary_flutter/features/settings/presentation/theme_setting/theme_setting_screen.dart';
+import 'package:moodary_flutter/features/settings/presentation/settings/settings_screen.dart';
 
 void main() {
   runApp(const ProviderScope(child: App()));
@@ -32,39 +31,7 @@ class App extends ConsumerWidget {
       ],
       supportedLocales: l10nState.supportedLocales,
       locale: l10nState.locale,
-      // home: LanguageSettingScreen(),
-      home: const ThemeSettingScreen(),
-    );
-  }
-}
-
-class Home extends ConsumerWidget {
-  const Home({super.key});
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    return Scaffold(
-      body: Column(
-        children: <Widget>[
-          Padding(
-            padding: EdgeInsets.only(top: MediaQuery.paddingOf(context).top),
-          ),
-          Text(S.current.log_mood, style: const TextStyle(fontSize: 32)),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('本地化'),
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                child: const Text('主题'),
-              ),
-            ],
-          )
-        ],
-      ),
+      home: SettingsScreen(),
     );
   }
 }
