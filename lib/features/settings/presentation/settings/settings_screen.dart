@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moodary_flutter/config/l10n/l10n.dart';
+import 'package:moodary_flutter/config/resources/resources.dart';
 import 'package:moodary_flutter/features/settings/presentation/language_settings/language_settings_screen.dart';
 import 'package:moodary_flutter/features/settings/presentation/theme_settings/theme_settings_screen.dart';
 
@@ -10,13 +10,16 @@ class SettingsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.current.settings),
+        title: Text(
+          context.string.settings,
+          style: TextStyle(color: context.color.appBarText),
+        ),
         centerTitle: true,
       ),
       body: ListView(
         children: <Widget>[
           _SettingsCell(
-            text: S.current.theme,
+            text: context.string.theme,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
@@ -27,8 +30,9 @@ class SettingsScreen extends StatelessWidget {
               );
             },
           ),
+          const Divider(thickness: 1),
           _SettingsCell(
-            text: S.current.mulit_language,
+            text: context.string.mulit_language,
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(

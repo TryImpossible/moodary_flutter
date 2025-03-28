@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:moodary_flutter/config/l10n/l10n.dart';
+import 'package:moodary_flutter/config/resources/resources.dart';
 import 'package:moodary_flutter/core/theme/theme_manager.dart';
 import 'package:moodary_flutter/core/theme/theme_state.dart';
 
@@ -13,7 +13,7 @@ class ThemeSettingsScreen extends ConsumerWidget {
         .select((ThemeState state) => state.supportedStyles));
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.current.theme),
+        title: Text(context.string.theme),
         centerTitle: true,
       ),
       body: ListView.separated(
@@ -42,7 +42,7 @@ class _ThemeSettingsCell extends ConsumerWidget {
     final ThemeStyle current = ref
         .watch(themeManagerProvider.select((ThemeState state) => state.style));
     return ListTile(
-      title: Text(style.text),
+      title: Text(style.getString(context)),
       selected: current == style,
       onTap: () => ref.read(themeManagerProvider.notifier).change(style),
     );

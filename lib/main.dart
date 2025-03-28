@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:moodary_flutter/config/l10n/l10n.dart';
+import 'package:moodary_flutter/config/resources/resources.dart';
 import 'package:moodary_flutter/config/routes/route_name.dart';
 import 'package:moodary_flutter/config/routes/route_table.dart';
 import 'package:moodary_flutter/core/l10n/l10n_manager.dart';
@@ -26,12 +27,13 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final ThemeState themeState = ref.watch(themeManagerProvider);
     final L10nState l10nState = ref.watch(l10nManagerProvider);
+
     return MaterialApp.router(
-      onGenerateTitle: (BuildContext context) => S.of(context).app_name,
-      theme: themeState.themeData,
+      onGenerateTitle: (BuildContext context) => context.string.app_name,
+      theme: themeState.theme,
       themeMode: ThemeMode.system,
       localizationsDelegates: const [
-        S.delegate,
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

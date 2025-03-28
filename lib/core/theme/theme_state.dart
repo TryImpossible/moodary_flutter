@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:moodary_flutter/config/resources/resources.dart';
 import 'package:moodary_flutter/config/theme/theme_dark.dart';
 import 'package:moodary_flutter/config/theme/theme_light.dart';
-import 'package:moodary_flutter/core/theme/theme_color.dart';
+import 'package:moodary_flutter/core/theme/app_color.dart';
 
 part 'theme_state.freezed.dart';
 
 /// 主题风格
 enum ThemeStyle {
   /// 浅色主题
-  light('浅色'),
+  light,
 
   /// 暗色主题
-  dark('深色');
+  dark;
 
-  final String text;
-
-  const ThemeStyle(this.text);
+  String getString(BuildContext context) {
+    return switch (this) {
+      ThemeStyle.light => context.string.light,
+      ThemeStyle.dark => context.string.dark,
+    };
+  }
 }
 
 @freezed
@@ -28,14 +32,14 @@ class ThemeState with _$ThemeState {
 
   const ThemeState._();
 
-  ThemeColor get color {
+  AppColor get color {
     return switch (style) {
       ThemeStyle.light => ThemeLight.color,
       ThemeStyle.dark => ThemeDark.color,
     };
   }
 
-  ThemeData get themeData {
+  ThemeData get theme {
     return ThemeData(
       extensions: <ThemeExtension<dynamic>>[color],
       inputDecorationTheme: InputDecorationTheme(

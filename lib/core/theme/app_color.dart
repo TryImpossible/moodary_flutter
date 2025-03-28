@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ThemeColor extends ThemeExtension<ThemeColor> {
-  ThemeColor({
+class AppColor extends ThemeExtension<AppColor> {
+  AppColor({
     required this.white,
     required this.black,
     required this.transparent,
@@ -287,7 +287,7 @@ class ThemeColor extends ThemeExtension<ThemeColor> {
   final Color bottomNavUnselected;
 
   @override
-  ThemeExtension<ThemeColor> copyWith({
+  ThemeExtension<AppColor> copyWith({
     Color? white,
     Color? black,
     Color? transparent,
@@ -353,7 +353,7 @@ class ThemeColor extends ThemeExtension<ThemeColor> {
     Color? bottomNavSelected,
     Color? bottomNavUnselected,
   }) {
-    return ThemeColor(
+    return AppColor(
       white: white ?? this.white,
       black: black ?? this.black,
       transparent: transparent ?? this.transparent,
@@ -431,14 +431,14 @@ class ThemeColor extends ThemeExtension<ThemeColor> {
   }
 
   @override
-  ThemeExtension<ThemeColor> lerp(
-    covariant ThemeExtension<ThemeColor>? other,
+  ThemeExtension<AppColor> lerp(
+    covariant ThemeExtension<AppColor>? other,
     double t,
   ) {
-    if (other is! ThemeColor) {
+    if (other is! AppColor) {
       return this;
     }
-    return ThemeColor(
+    return AppColor(
       // white: Color.lerp(white, other.white, t) ?? white,
       white: white,
       black: black,

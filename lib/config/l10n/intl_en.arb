@@ -8,5 +8,7 @@
 
   "mulit_language": "Language",
 
-  "theme": "Theme"
+  "theme": "Theme",
+  "light": "light",
+  "dark": "dark"
 }

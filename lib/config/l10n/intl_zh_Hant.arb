@@ -8,5 +8,7 @@
 
   "mulit_language": "多語言",
 
-  "theme": "主題"
+  "theme": "主題",
+  "light": "淺色",
+  "dark": "深色"
 }

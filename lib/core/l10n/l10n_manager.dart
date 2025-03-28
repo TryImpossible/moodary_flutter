@@ -14,7 +14,7 @@ class L10nManager extends _$L10nManager {
   L10nState build() {
     return L10nState(
       locale: const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans'),
-      supportedLocales: S.delegate.supportedLocales,
+      supportedLocales: AppLocalizations.delegate.supportedLocales,
     );
   }
 

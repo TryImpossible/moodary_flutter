@@ -4,7 +4,7 @@ import 'dart:ui';
 part 'l10n_state.freezed.dart';
 
 extension LocalExt on Locale {
-  String toLanguageText() {
+  String getString() {
     return switch (this) {
       const Locale.fromSubtags(languageCode: 'en') => 'English',
       const Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans') =>

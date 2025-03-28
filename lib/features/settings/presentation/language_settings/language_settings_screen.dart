@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:moodary_flutter/config/l10n/l10n.dart';
+import 'package:moodary_flutter/config/resources/resources.dart';
 import 'package:moodary_flutter/core/l10n/l10n_manager.dart';
 import 'package:moodary_flutter/core/l10n/l10n_state.dart';
 
@@ -13,7 +13,7 @@ class LanguageSettingsScreen extends ConsumerWidget {
         .select((L10nState state) => state.supportedLocales));
     return Scaffold(
       appBar: AppBar(
-        title: Text(S.current.mulit_language),
+        title: Text(context.string.mulit_language),
         centerTitle: true,
       ),
       body: ListView.separated(
@@ -44,7 +44,7 @@ class _LanguageSettingsCell extends ConsumerWidget {
     final Locale current = ref
         .watch(l10nManagerProvider.select((L10nState state) => state.locale));
     return ListTile(
-      title: Text(locale.toLanguageText()),
+      title: Text(locale.getString()),
       selected: current == locale,
       onTap: () => ref.read(l10nManagerProvider.notifier).change(locale),
     );
