@@ -12,6 +12,8 @@ class AppRouter {
 
   AppRouter();
 
+  RouterConfig<Object> get routerConfig => _router;
+
   GoRouter get _router {
     if (_goRouter == null) {
       final List<RouteBase> routes =
@@ -23,10 +25,19 @@ class AppRouter {
           GoRouterState state,
           GoRouter router,
         ) {
-          if (_notFoundRoute?.isNotEmpty ?? false) {
-            _goRouter?.go(_notFoundRoute!, extra: state.uri.toString());
+          if (_404Route?.isNotEmpty ?? false) {
+            _goRouter?.go(_404Route!, extra: state.uri.toString());
           }
         },
+        redirect: _redirect == null
+            ? null
+            : (BuildContext context, GoRouterState state) {
+                return _redirect!(
+                  context,
+                  AppRouterState._fromGoRouterState(state),
+                );
+              },
+        refreshListenable: _refreshListenable,
         initialLocation: _initialRoute,
         observers: _observers,
         navigatorKey: _navigatorKey,
@@ -39,7 +50,11 @@ class AppRouter {
 
   final List<AppRoute> _routes = <AppRoute>[];
 
-  AppRouter registerRoute(List<AppRoute> routes) {
+  AppRouter registerRoute(AppRoute route) {
+    return registerRoutes(<AppRoute>[route]);
+  }
+
+  AppRouter registerRoutes(List<AppRoute> routes) {
     _routes.addAll(routes);
     return this;
   }
@@ -47,7 +62,6 @@ class AppRouter {
   AppRouterRedirect? _redirect;
 
   AppRouter setRouterRedirect(AppRouterRedirect redirect) {
-    assert(_redirect != null, 'redirect only set once');
     _redirect = redirect;
     return this;
   }
@@ -55,7 +69,6 @@ class AppRouter {
   Listenable? _refreshListenable;
 
   AppRouter setRefreshListenable(Listenable refreshListenable) {
-    assert(_refreshListenable != null, 'refreshListenable only set once');
     _refreshListenable = refreshListenable;
     return this;
   }
@@ -79,23 +92,20 @@ class AppRouter {
   String? _initialRoute;
 
   AppRouter setInitialRoute(String initialRoute) {
-    assert(_initialRoute != null, 'initial route only set once');
     _initialRoute = initialRoute;
     return this;
   }
 
-  String? _notFoundRoute;
+  String? _404Route;
 
-  AppRouter setNotFoundRoute(String notFoundRoute) {
-    assert(_notFoundRoute != null, 'not found route only set once');
-    _notFoundRoute = notFoundRoute;
+  AppRouter set404Route(String notFoundRoute) {
+    _404Route = notFoundRoute;
     return this;
   }
 
   GlobalKey<NavigatorState>? _navigatorKey;
 
   AppRouter setNavigatorKey(GlobalKey<NavigatorState> navigatorKey) {
-    assert(_navigatorKey != null, 'navigator key only set once');
     _navigatorKey = navigatorKey;
     return this;
   }

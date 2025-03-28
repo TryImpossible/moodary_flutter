@@ -4,6 +4,12 @@ typedef AppRouterWidgetBuilder = Widget Function(
   BuildContext context,
   AppRouterState state,
 );
+
+typedef AppRouterPageBuilder = Page<dynamic> Function(
+  BuildContext context,
+  AppRouterState state,
+);
+
 typedef AppRouterRedirect = FutureOr<String?> Function(
   BuildContext context,
   AppRouterState state,
@@ -45,14 +51,16 @@ class AppRouterState {
 class AppRoute {
   final String path;
   final String? name;
-  final AppRouterWidgetBuilder builder;
+  final AppRouterWidgetBuilder? builder;
+  final AppRouterPageBuilder? pageBuilder;
   final AppRouterRedirect? redirect;
   final List<AppRoute> routes;
 
   const AppRoute({
     required this.path,
     this.name,
-    required this.builder,
+    this.builder,
+    this.pageBuilder,
     this.redirect,
     this.routes = const <AppRoute>[],
   });
@@ -61,12 +69,22 @@ class AppRoute {
     return GoRoute(
       path: path,
       name: name,
-      builder: (
-        BuildContext context,
-        GoRouterState state,
-      ) {
-        return builder(context, AppRouterState._fromGoRouterState(state));
-      },
+      builder: builder == null
+          ? null
+          : (BuildContext context, GoRouterState state) {
+              return builder!(
+                context,
+                AppRouterState._fromGoRouterState(state),
+              );
+            },
+      pageBuilder: pageBuilder == null
+          ? null
+          : (BuildContext context, GoRouterState state) {
+              return pageBuilder!(
+                context,
+                AppRouterState._fromGoRouterState(state),
+              );
+            },
       redirect: redirect == null
           ? null
           : (BuildContext context, GoRouterState state) {
