@@ -4,11 +4,13 @@ import 'package:moodary_flutter/config/l10n/l10n.dart';
 import 'package:moodary_flutter/core/l10n/l10n_manager.dart';
 import 'package:moodary_flutter/core/l10n/l10n_state.dart';
 
-class LanguageSettingScreen extends StatelessWidget {
-  const LanguageSettingScreen({super.key});
+class LanguageSettingsScreen extends ConsumerWidget {
+  const LanguageSettingsScreen({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final List<Locale> supportedLocales = ref.watch(l10nManagerProvider
+        .select((L10nState state) => state.supportedLocales));
     return Scaffold(
       appBar: AppBar(
         title: Text(S.current.mulit_language),
@@ -16,21 +18,21 @@ class LanguageSettingScreen extends StatelessWidget {
       ),
       body: ListView.separated(
         itemBuilder: (_, int index) {
-          return _LanguageSettingCell(
-            locale: S.delegate.supportedLocales[index],
+          return _LanguageSettingsCell(
+            locale: supportedLocales[index],
           );
         },
         separatorBuilder: (_, int index) {
           return const Divider(thickness: 1);
         },
-        itemCount: S.delegate.supportedLocales.length,
+        itemCount: supportedLocales.length,
       ),
     );
   }
 }
 
-class _LanguageSettingCell extends ConsumerWidget {
-  const _LanguageSettingCell({
+class _LanguageSettingsCell extends ConsumerWidget {
+  const _LanguageSettingsCell({
     super.key,
     required this.locale,
   });

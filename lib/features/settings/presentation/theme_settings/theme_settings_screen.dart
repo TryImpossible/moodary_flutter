@@ -4,8 +4,8 @@ import 'package:moodary_flutter/config/l10n/l10n.dart';
 import 'package:moodary_flutter/core/theme/theme_manager.dart';
 import 'package:moodary_flutter/core/theme/theme_state.dart';
 
-class ThemeSettingScreen extends ConsumerWidget {
-  const ThemeSettingScreen({super.key});
+class ThemeSettingsScreen extends ConsumerWidget {
+  const ThemeSettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -18,7 +18,7 @@ class ThemeSettingScreen extends ConsumerWidget {
       ),
       body: ListView.separated(
         itemBuilder: (_, int index) {
-          return _ThemeSettingCell(style: supportedStyles[index]);
+          return _ThemeSettingsCell(style: supportedStyles[index]);
         },
         separatorBuilder: (_, int index) {
           return const Divider(thickness: 1);
@@ -29,8 +29,8 @@ class ThemeSettingScreen extends ConsumerWidget {
   }
 }
 
-class _ThemeSettingCell extends ConsumerWidget {
-  const _ThemeSettingCell({
+class _ThemeSettingsCell extends ConsumerWidget {
+  const _ThemeSettingsCell({
     super.key,
     required this.style,
   });

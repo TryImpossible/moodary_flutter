@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moodary_flutter/config/l10n/l10n.dart';
-import 'package:moodary_flutter/features/settings/presentation/language_setting/language_setting_screen.dart';
-import 'package:moodary_flutter/features/settings/presentation/theme_setting/theme_setting_screen.dart';
+import 'package:moodary_flutter/features/settings/presentation/language_settings/language_settings_screen.dart';
+import 'package:moodary_flutter/features/settings/presentation/theme_settings/theme_settings_screen.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -21,7 +21,7 @@ class SettingsScreen extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) {
-                    return const ThemeSettingScreen();
+                    return const ThemeSettingsScreen();
                   },
                 ),
               );
@@ -33,7 +33,7 @@ class SettingsScreen extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                   builder: (_) {
-                    return const LanguageSettingScreen();
+                    return const LanguageSettingsScreen();
                   },
                 ),
               );
