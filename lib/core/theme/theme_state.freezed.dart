@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ThemeState {
+  bool get isFollowSystem => throw _privateConstructorUsedError;
   ThemeStyle get style => throw _privateConstructorUsedError;
   List<ThemeStyle> get supportedStyles => throw _privateConstructorUsedError;
 
@@ -30,7 +31,10 @@ abstract class $ThemeStateCopyWith<$Res> {
           ThemeState value, $Res Function(ThemeState) then) =
       _$ThemeStateCopyWithImpl<$Res, ThemeState>;
   @useResult
-  $Res call({ThemeStyle style, List<ThemeStyle> supportedStyles});
+  $Res call(
+      {bool isFollowSystem,
+      ThemeStyle style,
+      List<ThemeStyle> supportedStyles});
 }
 
 /// @nodoc
@@ -46,10 +50,15 @@ class _$ThemeStateCopyWithImpl<$Res, $Val extends ThemeState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isFollowSystem = null,
     Object? style = null,
     Object? supportedStyles = null,
   }) {
     return _then(_value.copyWith(
+      isFollowSystem: null == isFollowSystem
+          ? _value.isFollowSystem
+          : isFollowSystem // ignore: cast_nullable_to_non_nullable
+              as bool,
       style: null == style
           ? _value.style
           : style // ignore: cast_nullable_to_non_nullable
@@ -70,7 +79,10 @@ abstract class _$$ThemeStateImplCopyWith<$Res>
       __$$ThemeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ThemeStyle style, List<ThemeStyle> supportedStyles});
+  $Res call(
+      {bool isFollowSystem,
+      ThemeStyle style,
+      List<ThemeStyle> supportedStyles});
 }
 
 /// @nodoc
@@ -84,10 +96,15 @@ class __$$ThemeStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? isFollowSystem = null,
     Object? style = null,
     Object? supportedStyles = null,
   }) {
     return _then(_$ThemeStateImpl(
+      isFollowSystem: null == isFollowSystem
+          ? _value.isFollowSystem
+          : isFollowSystem // ignore: cast_nullable_to_non_nullable
+              as bool,
       style: null == style
           ? _value.style
           : style // ignore: cast_nullable_to_non_nullable
@@ -104,10 +121,14 @@ class __$$ThemeStateImplCopyWithImpl<$Res>
 
 class _$ThemeStateImpl extends _ThemeState {
   const _$ThemeStateImpl(
-      {required this.style, required final List<ThemeStyle> supportedStyles})
+      {required this.isFollowSystem,
+      required this.style,
+      required final List<ThemeStyle> supportedStyles})
       : _supportedStyles = supportedStyles,
         super._();
 
+  @override
+  final bool isFollowSystem;
   @override
   final ThemeStyle style;
   final List<ThemeStyle> _supportedStyles;
@@ -120,7 +141,7 @@ class _$ThemeStateImpl extends _ThemeState {
 
   @override
   String toString() {
-    return 'ThemeState(style: $style, supportedStyles: $supportedStyles)';
+    return 'ThemeState(isFollowSystem: $isFollowSystem, style: $style, supportedStyles: $supportedStyles)';
   }
 
   @override
@@ -128,13 +149,15 @@ class _$ThemeStateImpl extends _ThemeState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThemeStateImpl &&
+            (identical(other.isFollowSystem, isFollowSystem) ||
+                other.isFollowSystem == isFollowSystem) &&
             (identical(other.style, style) || other.style == style) &&
             const DeepCollectionEquality()
                 .equals(other._supportedStyles, _supportedStyles));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, style,
+  int get hashCode => Object.hash(runtimeType, isFollowSystem, style,
       const DeepCollectionEquality().hash(_supportedStyles));
 
   @JsonKey(ignore: true)
@@ -146,10 +169,13 @@ class _$ThemeStateImpl extends _ThemeState {
 
 abstract class _ThemeState extends ThemeState {
   const factory _ThemeState(
-      {required final ThemeStyle style,
+      {required final bool isFollowSystem,
+      required final ThemeStyle style,
       required final List<ThemeStyle> supportedStyles}) = _$ThemeStateImpl;
   const _ThemeState._() : super._();
 
+  @override
+  bool get isFollowSystem;
   @override
   ThemeStyle get style;
   @override

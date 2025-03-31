@@ -33,7 +33,6 @@ class App extends ConsumerWidget {
     return MaterialApp.router(
       onGenerateTitle: (BuildContext context) => context.string.app_name,
       theme: themeState.theme,
-      themeMode: ThemeMode.system,
       localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
