@@ -6,7 +6,7 @@ part of 'l10n_manager.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$l10nManagerHash() => r'4b1b89ebbc9e4452a4dd96f1905938713ebb8fe7';
+String _$l10nManagerHash() => r'65da412be6aa01a622c549a0f284fd079ebd5838';
 
 /// See also [L10nManager].
 @ProviderFor(L10nManager)

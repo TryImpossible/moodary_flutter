@@ -24,6 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "app_name": MessageLookupByLibrary.simpleMessage("moodary"),
     "dark": MessageLookupByLibrary.simpleMessage("深色"),
+    "follow_system": MessageLookupByLibrary.simpleMessage("跟随系统"),
+    "language_options": MessageLookupByLibrary.simpleMessage("语言选项"),
     "light": MessageLookupByLibrary.simpleMessage("浅色"),
     "log_mood": MessageLookupByLibrary.simpleMessage("记心情"),
     "mulit_language": MessageLookupByLibrary.simpleMessage("多语言"),

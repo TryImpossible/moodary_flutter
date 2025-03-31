@@ -7,6 +7,9 @@
   "settings": "Settings",
 
   "mulit_language": "Language",
+  "language_options": "Language options",
+
+  "follow_system": "Automatic",
 
   "theme": "Theme",
   "light": "light",

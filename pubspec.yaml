@@ -44,6 +44,14 @@ dependencies:
   freezed_annotation: ^2.4.4
   json_annotation: ^4.9.0
 
+  shared_preferences: ^2.3.3
+
+dependency_overrides:
+  shared_preferences:
+    git:
+      url: "https://gitcode.com/openharmony-sig/flutter_packages.git"
+      path: "packages/shared_preferences/shared_preferences"
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

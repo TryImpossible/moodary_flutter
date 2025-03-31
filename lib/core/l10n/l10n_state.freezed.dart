@@ -16,7 +16,8 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$L10nState {
-  Locale get locale => throw _privateConstructorUsedError;
+  bool get isFollowSystem => throw _privateConstructorUsedError;
+  Locale? get locale => throw _privateConstructorUsedError;
   List<Locale> get supportedLocales => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -29,7 +30,8 @@ abstract class $L10nStateCopyWith<$Res> {
   factory $L10nStateCopyWith(L10nState value, $Res Function(L10nState) then) =
       _$L10nStateCopyWithImpl<$Res, L10nState>;
   @useResult
-  $Res call({Locale locale, List<Locale> supportedLocales});
+  $Res call(
+      {bool isFollowSystem, Locale? locale, List<Locale> supportedLocales});
 }
 
 /// @nodoc
@@ -45,14 +47,19 @@ class _$L10nStateCopyWithImpl<$Res, $Val extends L10nState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? locale = null,
+    Object? isFollowSystem = null,
+    Object? locale = freezed,
     Object? supportedLocales = null,
   }) {
     return _then(_value.copyWith(
-      locale: null == locale
+      isFollowSystem: null == isFollowSystem
+          ? _value.isFollowSystem
+          : isFollowSystem // ignore: cast_nullable_to_non_nullable
+              as bool,
+      locale: freezed == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
-              as Locale,
+              as Locale?,
       supportedLocales: null == supportedLocales
           ? _value.supportedLocales
           : supportedLocales // ignore: cast_nullable_to_non_nullable
@@ -69,7 +76,8 @@ abstract class _$$L10nStateImplCopyWith<$Res>
       __$$L10nStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Locale locale, List<Locale> supportedLocales});
+  $Res call(
+      {bool isFollowSystem, Locale? locale, List<Locale> supportedLocales});
 }
 
 /// @nodoc
@@ -83,14 +91,19 @@ class __$$L10nStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? locale = null,
+    Object? isFollowSystem = null,
+    Object? locale = freezed,
     Object? supportedLocales = null,
   }) {
     return _then(_$L10nStateImpl(
-      locale: null == locale
+      isFollowSystem: null == isFollowSystem
+          ? _value.isFollowSystem
+          : isFollowSystem // ignore: cast_nullable_to_non_nullable
+              as bool,
+      locale: freezed == locale
           ? _value.locale
           : locale // ignore: cast_nullable_to_non_nullable
-              as Locale,
+              as Locale?,
       supportedLocales: null == supportedLocales
           ? _value._supportedLocales
           : supportedLocales // ignore: cast_nullable_to_non_nullable
@@ -103,11 +116,15 @@ class __$$L10nStateImplCopyWithImpl<$Res>
 
 class _$L10nStateImpl implements _L10nState {
   const _$L10nStateImpl(
-      {required this.locale, required final List<Locale> supportedLocales})
+      {required this.isFollowSystem,
+      required this.locale,
+      required final List<Locale> supportedLocales})
       : _supportedLocales = supportedLocales;
 
   @override
-  final Locale locale;
+  final bool isFollowSystem;
+  @override
+  final Locale? locale;
   final List<Locale> _supportedLocales;
   @override
   List<Locale> get supportedLocales {
@@ -119,7 +136,7 @@ class _$L10nStateImpl implements _L10nState {
 
   @override
   String toString() {
-    return 'L10nState(locale: $locale, supportedLocales: $supportedLocales)';
+    return 'L10nState(isFollowSystem: $isFollowSystem, locale: $locale, supportedLocales: $supportedLocales)';
   }
 
   @override
@@ -127,13 +144,15 @@ class _$L10nStateImpl implements _L10nState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$L10nStateImpl &&
+            (identical(other.isFollowSystem, isFollowSystem) ||
+                other.isFollowSystem == isFollowSystem) &&
             (identical(other.locale, locale) || other.locale == locale) &&
             const DeepCollectionEquality()
                 .equals(other._supportedLocales, _supportedLocales));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, locale,
+  int get hashCode => Object.hash(runtimeType, isFollowSystem, locale,
       const DeepCollectionEquality().hash(_supportedLocales));
 
   @JsonKey(ignore: true)
@@ -145,11 +164,14 @@ class _$L10nStateImpl implements _L10nState {
 
 abstract class _L10nState implements L10nState {
   const factory _L10nState(
-      {required final Locale locale,
+      {required final bool isFollowSystem,
+      required final Locale? locale,
       required final List<Locale> supportedLocales}) = _$L10nStateImpl;
 
   @override
-  Locale get locale;
+  bool get isFollowSystem;
+  @override
+  Locale? get locale;
   @override
   List<Locale> get supportedLocales;
   @override

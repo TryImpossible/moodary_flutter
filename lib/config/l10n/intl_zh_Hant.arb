@@ -7,6 +7,9 @@
   "settings": "設置",
 
   "mulit_language": "多語言",
+  "language_options": "語言選項",
+
+  "follow_system": "系統預設",
 
   "theme": "主題",
   "light": "淺色",

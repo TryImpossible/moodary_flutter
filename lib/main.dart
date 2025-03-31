@@ -8,10 +8,13 @@ import 'package:moodary_flutter/config/routes/route_table.dart';
 import 'package:moodary_flutter/core/l10n/l10n_manager.dart';
 import 'package:moodary_flutter/core/l10n/l10n_state.dart';
 import 'package:moodary_flutter/core/router/app_router.dart';
+import 'package:moodary_flutter/core/storages/app_storage.dart';
 import 'package:moodary_flutter/core/theme/theme_manager.dart';
 import 'package:moodary_flutter/core/theme/theme_state.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await AppStorage.initDefault();
   GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   AppRouter.getDefault()
       .setNavigatorKey(navigatorKey)
@@ -27,7 +30,6 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final ThemeState themeState = ref.watch(themeManagerProvider);
     final L10nState l10nState = ref.watch(l10nManagerProvider);
-
     return MaterialApp.router(
       onGenerateTitle: (BuildContext context) => context.string.app_name,
       theme: themeState.theme,
@@ -38,6 +40,24 @@ class App extends ConsumerWidget {
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
+      localeResolutionCallback: (
+        Locale? locale,
+        Iterable<Locale> supportedLocales,
+      ) {
+        if (l10nState.isFollowSystem) {
+          return l10nState.locale;
+        }
+        if (supportedLocales.contains(locale)) {
+          return locale;
+        } else {
+          for (final Locale supportedLocale in supportedLocales) {
+            if (supportedLocale.languageCode == locale?.languageCode) {
+              return supportedLocale;
+            }
+          }
+        }
+        return const Locale.fromSubtags(languageCode: 'en');
+      },
       supportedLocales: l10nState.supportedLocales,
       locale: l10nState.locale,
       routerConfig: AppRouter.getDefault().routerConfig,

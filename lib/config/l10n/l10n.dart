@@ -85,6 +85,21 @@ class AppLocalizations {
     return Intl.message('Language', name: 'mulit_language', desc: '', args: []);
   }
 
+  /// `Language options`
+  String get language_options {
+    return Intl.message(
+      'Language options',
+      name: 'language_options',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Automatic`
+  String get follow_system {
+    return Intl.message('Automatic', name: 'follow_system', desc: '', args: []);
+  }
+
   /// `Theme`
   String get theme {
     return Intl.message('Theme', name: 'theme', desc: '', args: []);
