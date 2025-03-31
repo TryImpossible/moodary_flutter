@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:moodary_flutter/config/resources/resources.dart';
-import 'package:moodary_flutter/core/l10n/l10n_manager.dart';
-import 'package:moodary_flutter/core/l10n/l10n_state.dart';
+import 'package:moodary_flutter/core/l10n/app_l10n.dart';
+import 'package:moodary_flutter/core/l10n/app_l10n_state.dart';
 import 'package:moodary_flutter/core/utils/locale_utils.dart';
 
 class LanguageSettingsScreen extends StatelessWidget {
@@ -33,14 +33,14 @@ class _FollowSystemItem extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final bool isFollowSystem = ref.watch(
-        l10nManagerProvider.select((L10nState state) => state.isFollowSystem));
+        appL10nProvider.select((AppL10nState state) => state.isFollowSystem));
     return ListTile(
       title: Text(context.string.follow_system),
       trailing: CupertinoSwitch(
         activeColor: context.color.switchActive,
         thumbColor: context.color.switchThumb,
         value: isFollowSystem,
-        onChanged: ref.read(l10nManagerProvider.notifier).followSystem,
+        onChanged: ref.read(appL10nProvider.notifier).followSystem,
       ),
     );
   }
@@ -51,8 +51,8 @@ class _LanguageOptionsList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final List<Locale> supportedLocales = ref.watch(l10nManagerProvider
-        .select((L10nState state) => state.supportedLocales));
+    final List<Locale> supportedLocales = ref.watch(
+        appL10nProvider.select((AppL10nState state) => state.supportedLocales));
     return Expanded(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,12 +93,12 @@ class _LanguageOptionItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final Locale? current = ref
-        .watch(l10nManagerProvider.select((L10nState state) => state.locale));
+    final Locale? current =
+        ref.watch(appL10nProvider.select((AppL10nState state) => state.locale));
     final bool isSelected = current == locale;
     return ListTile(
       title: Text(LocaleUtils.getString(locale)),
-      onTap: () => ref.read(l10nManagerProvider.notifier).changeLocale(locale),
+      onTap: () => ref.read(appL10nProvider.notifier).changeLocale(locale),
       trailing: isSelected
           ? Icon(Icons.check, size: 20, color: context.color.primary)
           : null,

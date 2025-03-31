@@ -5,8 +5,8 @@ import 'package:moodary_flutter/config/l10n/l10n.dart';
 import 'package:moodary_flutter/config/resources/resources.dart';
 import 'package:moodary_flutter/config/routes/route_name.dart';
 import 'package:moodary_flutter/config/routes/route_table.dart';
-import 'package:moodary_flutter/core/l10n/l10n_manager.dart';
-import 'package:moodary_flutter/core/l10n/l10n_state.dart';
+import 'package:moodary_flutter/core/l10n/app_l10n.dart';
+import 'package:moodary_flutter/core/l10n/app_l10n_state.dart';
 import 'package:moodary_flutter/core/router/app_router.dart';
 import 'package:moodary_flutter/core/storages/app_storage.dart';
 import 'package:moodary_flutter/core/theme/app_theme.dart';
@@ -29,7 +29,7 @@ class App extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final AppThemeState themeState = ref.watch(appThemeProvider);
-    final L10nState l10nState = ref.watch(l10nManagerProvider);
+    final AppL10nState l10nState = ref.watch(appL10nProvider);
     return MaterialApp.router(
       onGenerateTitle: (BuildContext context) => context.string.app_name,
       theme: themeState.theme,

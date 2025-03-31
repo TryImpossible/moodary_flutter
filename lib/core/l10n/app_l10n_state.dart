@@ -3,13 +3,13 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'l10n_state.freezed.dart';
+part 'app_l10n_state.freezed.dart';
 
 @freezed
-class L10nState with _$L10nState {
-  const factory L10nState({
+class AppL10nState with _$AppL10nState {
+  const factory AppL10nState({
     required bool isFollowSystem,
     required Locale? locale,
     required List<Locale> supportedLocales,
-  }) = _L10nState;
+  }) = _AppL10nState;
 }

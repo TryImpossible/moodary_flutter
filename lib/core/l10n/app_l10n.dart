@@ -5,19 +5,19 @@ import 'package:moodary_flutter/core/storages/app_storage.dart';
 import 'package:moodary_flutter/core/utils/locale_utils.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'l10n_state.dart';
+import 'app_l10n_state.dart';
 
-part 'l10n_manager.g.dart';
+part 'app_l10n.g.dart';
 
 @riverpod
-class L10nManager extends _$L10nManager {
+class AppL10n extends _$AppL10n {
   @override
-  L10nState build() {
+  AppL10nState build() {
     final bool isFollowSystem =
         AppStorage.sharedPrefs.readBool('l10n_is_follow_system') ?? false;
     final Locale? locale =
         _getLocale(isFollowSystem, AppLocalizations.delegate.supportedLocales);
-    return L10nState(
+    return AppL10nState(
       locale: locale,
       supportedLocales: AppLocalizations.delegate.supportedLocales,
       isFollowSystem: isFollowSystem,
