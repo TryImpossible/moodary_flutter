@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:moodary_flutter/core/storages/app_storage.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import 'theme_state.dart';
+import 'app_theme_state.dart';
 
-part 'theme_manager.g.dart';
+part 'app_theme.g.dart';
 
 @riverpod
-class ThemeManager extends _$ThemeManager with WidgetsBindingObserver {
+class AppTheme extends _$AppTheme with WidgetsBindingObserver {
   @override
-  ThemeState build() {
+  AppThemeState build() {
     WidgetsBinding.instance.addObserver(this);
     ref.onDispose(() {
       WidgetsBinding.instance.removeObserver(this);
@@ -19,7 +19,7 @@ class ThemeManager extends _$ThemeManager with WidgetsBindingObserver {
 
     final bool isFollowSystem =
         AppStorage.sharedPrefs.readBool('theme_is_follow_system') ?? false;
-    return ThemeState(
+    return AppThemeState(
       isFollowSystem: isFollowSystem,
       style: _getThemeStyle(isFollowSystem),
       supportedStyles: ThemeStyle.values,

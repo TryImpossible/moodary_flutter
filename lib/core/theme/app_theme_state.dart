@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:moodary_flutter/config/resources/resources.dart';
-import 'package:moodary_flutter/config/theme/theme_dark.dart';
-import 'package:moodary_flutter/config/theme/theme_light.dart';
+import 'package:moodary_flutter/config/theme/app_theme_dark.dart';
+import 'package:moodary_flutter/config/theme/app_theme_light.dart';
 import 'package:moodary_flutter/core/theme/app_color.dart';
 
-part 'theme_state.freezed.dart';
+part 'app_theme_state.freezed.dart';
 
 /// 主题风格
 enum ThemeStyle {
@@ -43,19 +43,19 @@ enum ThemeStyle {
 final Map<ThemeStyle, ThemeData> _sharedThemes = <ThemeStyle, ThemeData>{};
 
 @freezed
-class ThemeState with _$ThemeState {
-  const factory ThemeState({
+class AppThemeState with _$AppThemeState {
+  const factory AppThemeState({
     required bool isFollowSystem,
     required ThemeStyle style,
     required List<ThemeStyle> supportedStyles,
-  }) = _ThemeState;
+  }) = _AppThemeState;
 
-  const ThemeState._();
+  const AppThemeState._();
 
   AppColor get color {
     return switch (style) {
-      ThemeStyle.light => ThemeLight.color,
-      ThemeStyle.dark => ThemeDark.color,
+      ThemeStyle.light => AppThemeLight.color,
+      ThemeStyle.dark => AppThemeDark.color,
     };
   }
 

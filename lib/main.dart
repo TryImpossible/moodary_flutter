@@ -9,8 +9,8 @@ import 'package:moodary_flutter/core/l10n/l10n_manager.dart';
 import 'package:moodary_flutter/core/l10n/l10n_state.dart';
 import 'package:moodary_flutter/core/router/app_router.dart';
 import 'package:moodary_flutter/core/storages/app_storage.dart';
-import 'package:moodary_flutter/core/theme/theme_manager.dart';
-import 'package:moodary_flutter/core/theme/theme_state.dart';
+import 'package:moodary_flutter/core/theme/app_theme.dart';
+import 'package:moodary_flutter/core/theme/app_theme_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,7 +28,7 @@ class App extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final ThemeState themeState = ref.watch(themeManagerProvider);
+    final AppThemeState themeState = ref.watch(appThemeProvider);
     final L10nState l10nState = ref.watch(l10nManagerProvider);
     return MaterialApp.router(
       onGenerateTitle: (BuildContext context) => context.string.app_name,

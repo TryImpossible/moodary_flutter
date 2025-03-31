@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:moodary_flutter/core/theme/app_color.dart';
 
-abstract class ThemeDark {
+abstract class AppThemeDark {
   static AppColor color = AppColor(
     white: const Color(0xFFFFFFFF),
     black: const Color(0xFF000000),

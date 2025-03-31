@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'theme_state.dart';
+part of 'app_theme_state.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,21 +15,21 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$ThemeState {
+mixin _$AppThemeState {
   bool get isFollowSystem => throw _privateConstructorUsedError;
   ThemeStyle get style => throw _privateConstructorUsedError;
   List<ThemeStyle> get supportedStyles => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ThemeStateCopyWith<ThemeState> get copyWith =>
+  $AppThemeStateCopyWith<AppThemeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ThemeStateCopyWith<$Res> {
-  factory $ThemeStateCopyWith(
-          ThemeState value, $Res Function(ThemeState) then) =
-      _$ThemeStateCopyWithImpl<$Res, ThemeState>;
+abstract class $AppThemeStateCopyWith<$Res> {
+  factory $AppThemeStateCopyWith(
+          AppThemeState value, $Res Function(AppThemeState) then) =
+      _$AppThemeStateCopyWithImpl<$Res, AppThemeState>;
   @useResult
   $Res call(
       {bool isFollowSystem,
@@ -38,9 +38,9 @@ abstract class $ThemeStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ThemeStateCopyWithImpl<$Res, $Val extends ThemeState>
-    implements $ThemeStateCopyWith<$Res> {
-  _$ThemeStateCopyWithImpl(this._value, this._then);
+class _$AppThemeStateCopyWithImpl<$Res, $Val extends AppThemeState>
+    implements $AppThemeStateCopyWith<$Res> {
+  _$AppThemeStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -72,11 +72,11 @@ class _$ThemeStateCopyWithImpl<$Res, $Val extends ThemeState>
 }
 
 /// @nodoc
-abstract class _$$ThemeStateImplCopyWith<$Res>
-    implements $ThemeStateCopyWith<$Res> {
-  factory _$$ThemeStateImplCopyWith(
-          _$ThemeStateImpl value, $Res Function(_$ThemeStateImpl) then) =
-      __$$ThemeStateImplCopyWithImpl<$Res>;
+abstract class _$$AppThemeStateImplCopyWith<$Res>
+    implements $AppThemeStateCopyWith<$Res> {
+  factory _$$AppThemeStateImplCopyWith(
+          _$AppThemeStateImpl value, $Res Function(_$AppThemeStateImpl) then) =
+      __$$AppThemeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -86,11 +86,11 @@ abstract class _$$ThemeStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ThemeStateImplCopyWithImpl<$Res>
-    extends _$ThemeStateCopyWithImpl<$Res, _$ThemeStateImpl>
-    implements _$$ThemeStateImplCopyWith<$Res> {
-  __$$ThemeStateImplCopyWithImpl(
-      _$ThemeStateImpl _value, $Res Function(_$ThemeStateImpl) _then)
+class __$$AppThemeStateImplCopyWithImpl<$Res>
+    extends _$AppThemeStateCopyWithImpl<$Res, _$AppThemeStateImpl>
+    implements _$$AppThemeStateImplCopyWith<$Res> {
+  __$$AppThemeStateImplCopyWithImpl(
+      _$AppThemeStateImpl _value, $Res Function(_$AppThemeStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -100,7 +100,7 @@ class __$$ThemeStateImplCopyWithImpl<$Res>
     Object? style = null,
     Object? supportedStyles = null,
   }) {
-    return _then(_$ThemeStateImpl(
+    return _then(_$AppThemeStateImpl(
       isFollowSystem: null == isFollowSystem
           ? _value.isFollowSystem
           : isFollowSystem // ignore: cast_nullable_to_non_nullable
@@ -119,8 +119,8 @@ class __$$ThemeStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ThemeStateImpl extends _ThemeState {
-  const _$ThemeStateImpl(
+class _$AppThemeStateImpl extends _AppThemeState {
+  const _$AppThemeStateImpl(
       {required this.isFollowSystem,
       required this.style,
       required final List<ThemeStyle> supportedStyles})
@@ -141,14 +141,14 @@ class _$ThemeStateImpl extends _ThemeState {
 
   @override
   String toString() {
-    return 'ThemeState(isFollowSystem: $isFollowSystem, style: $style, supportedStyles: $supportedStyles)';
+    return 'AppThemeState(isFollowSystem: $isFollowSystem, style: $style, supportedStyles: $supportedStyles)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ThemeStateImpl &&
+            other is _$AppThemeStateImpl &&
             (identical(other.isFollowSystem, isFollowSystem) ||
                 other.isFollowSystem == isFollowSystem) &&
             (identical(other.style, style) || other.style == style) &&
@@ -163,16 +163,16 @@ class _$ThemeStateImpl extends _ThemeState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ThemeStateImplCopyWith<_$ThemeStateImpl> get copyWith =>
-      __$$ThemeStateImplCopyWithImpl<_$ThemeStateImpl>(this, _$identity);
+  _$$AppThemeStateImplCopyWith<_$AppThemeStateImpl> get copyWith =>
+      __$$AppThemeStateImplCopyWithImpl<_$AppThemeStateImpl>(this, _$identity);
 }
 
-abstract class _ThemeState extends ThemeState {
-  const factory _ThemeState(
+abstract class _AppThemeState extends AppThemeState {
+  const factory _AppThemeState(
       {required final bool isFollowSystem,
       required final ThemeStyle style,
-      required final List<ThemeStyle> supportedStyles}) = _$ThemeStateImpl;
-  const _ThemeState._() : super._();
+      required final List<ThemeStyle> supportedStyles}) = _$AppThemeStateImpl;
+  const _AppThemeState._() : super._();
 
   @override
   bool get isFollowSystem;
@@ -182,6 +182,6 @@ abstract class _ThemeState extends ThemeState {
   List<ThemeStyle> get supportedStyles;
   @override
   @JsonKey(ignore: true)
-  _$$ThemeStateImplCopyWith<_$ThemeStateImpl> get copyWith =>
+  _$$AppThemeStateImplCopyWith<_$AppThemeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

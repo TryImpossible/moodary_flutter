@@ -2,8 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:moodary_flutter/config/resources/resources.dart';
-import 'package:moodary_flutter/core/theme/theme_manager.dart';
-import 'package:moodary_flutter/core/theme/theme_state.dart';
+import 'package:moodary_flutter/core/theme/app_theme.dart';
+import 'package:moodary_flutter/core/theme/app_theme_state.dart';
 
 class ThemeSettingsScreen extends StatelessWidget {
   const ThemeSettingsScreen({super.key});
@@ -31,15 +31,15 @@ class _FollowSystemItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bool isFollowSystem = ref.watch(themeManagerProvider
-        .select((ThemeState state) => state.isFollowSystem));
+    final bool isFollowSystem = ref.watch(
+        appThemeProvider.select((AppThemeState state) => state.isFollowSystem));
     return ListTile(
       title: Text(context.string.follow_system),
       trailing: CupertinoSwitch(
         activeColor: context.color.switchActive,
         thumbColor: context.color.switchThumb,
         value: isFollowSystem,
-        onChanged: ref.read(themeManagerProvider.notifier).followSystem,
+        onChanged: ref.read(appThemeProvider.notifier).followSystem,
       ),
     );
   }
@@ -50,10 +50,10 @@ class _ThemeOptionsList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final bool isFollowSystem = ref.watch(themeManagerProvider
-        .select((ThemeState state) => state.isFollowSystem));
-    final List<ThemeStyle> supportedStyles = ref.watch(themeManagerProvider
-        .select((ThemeState state) => state.supportedStyles));
+    final bool isFollowSystem = ref.watch(
+        appThemeProvider.select((AppThemeState state) => state.isFollowSystem));
+    final List<ThemeStyle> supportedStyles = ref.watch(appThemeProvider
+        .select((AppThemeState state) => state.supportedStyles));
     return Visibility(
       visible: !isFollowSystem,
       child: Expanded(
@@ -98,11 +98,11 @@ class _ThemeOptionsItem extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final ThemeStyle current = ref
-        .watch(themeManagerProvider.select((ThemeState state) => state.style));
+        .watch(appThemeProvider.select((AppThemeState state) => state.style));
     final bool isSelected = current == style;
     return ListTile(
       title: Text(style.getString(context)),
-      onTap: () => ref.read(themeManagerProvider.notifier).changeTheme(style),
+      onTap: () => ref.read(appThemeProvider.notifier).changeTheme(style),
       trailing: isSelected
           ? Icon(Icons.check, size: 20, color: context.color.primary)
           : null,
