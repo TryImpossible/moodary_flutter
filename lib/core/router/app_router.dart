@@ -14,10 +14,14 @@ class AppRouter {
 
   RouterConfig<Object> get routerConfig => _router;
 
+  RouteConfiguration get _configuration =>
+      _router.routeInformationParser.configuration;
+
   GoRouter get _router {
     if (_goRouter == null) {
       final List<RouteBase> routes =
           _routes.map((AppRoute route) => route._toGoRoute()).toList();
+      GoRouter.optionURLReflectsImperativeAPIs = true;
       _goRouter = GoRouter(
         routes: routes,
         onException: (
@@ -200,6 +204,24 @@ class AppRouter {
 
   void pop<T extends Object?>([T? result]) {
     _router.pop<T>(result);
+  }
+
+  bool hasRoute(
+    String name, {
+    Map<String, String> pathParameters = const <String, String>{},
+    Map<String, dynamic> queryParameters = const <String, dynamic>{},
+    String? fragment,
+  }) {
+    final Uri uri = Uri.parse(_configuration.namedLocation(
+      name,
+      pathParameters: pathParameters,
+      queryParameters: queryParameters,
+      fragment: fragment,
+    ));
+    return _router.routeInformationParser.configuration
+        .findMatch(uri)
+        .matches
+        .isNotEmpty;
   }
 
   void refresh() {

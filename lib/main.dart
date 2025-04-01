@@ -1,25 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:moodary_flutter/config/l10n/l10n.dart';
 import 'package:moodary_flutter/config/resources/resources.dart';
-import 'package:moodary_flutter/config/routes/route_name.dart';
-import 'package:moodary_flutter/config/routes/route_table.dart';
+import 'package:moodary_flutter/config/routes/app_route_name.dart';
+import 'package:moodary_flutter/config/routes/app_route_table.dart';
 import 'package:moodary_flutter/core/l10n/app_l10n.dart';
 import 'package:moodary_flutter/core/l10n/app_l10n_state.dart';
 import 'package:moodary_flutter/core/router/app_router.dart';
+import 'package:moodary_flutter/core/router/log_nav_observer.dart';
 import 'package:moodary_flutter/core/storages/app_storage.dart';
 import 'package:moodary_flutter/core/theme/app_theme.dart';
 import 'package:moodary_flutter/core/theme/app_theme_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  usePathUrlStrategy();
   await AppStorage.initDefault();
   GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   AppRouter.getDefault()
       .setNavigatorKey(navigatorKey)
-      .setInitialRoute(RouteName.settings.path)
-      .registerRoutes(RouteTable.routes);
+      .setInitialRoute(AppRouteName.settings.path)
+      .registerRoutes(AppRouteTable.routes)
+      .addObserver(LogNavObserver());
   runApp(const ProviderScope(child: App()));
 }
 

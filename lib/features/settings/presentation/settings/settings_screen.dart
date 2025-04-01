@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodary_flutter/config/resources/resources.dart';
-import 'package:moodary_flutter/features/settings/presentation/language_settings/language_settings_screen.dart';
-import 'package:moodary_flutter/features/settings/presentation/theme_settings/theme_settings_screen.dart';
+import 'package:moodary_flutter/core/services/app_services.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -21,26 +20,14 @@ class SettingsScreen extends StatelessWidget {
           _SettingsCell(
             text: context.string.theme,
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) {
-                    return const ThemeSettingsScreen();
-                  },
-                ),
-              );
+              AppServices.navigation.goThemeSettings();
             },
           ),
           const Divider(thickness: 1),
           _SettingsCell(
             text: context.string.mulit_language,
             onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (_) {
-                    return const LanguageSettingsScreen();
-                  },
-                ),
-              );
+              AppServices.navigation.goLangeSettings();
             },
           ),
         ],
