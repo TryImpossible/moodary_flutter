@@ -33,6 +33,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mulit_language": MessageLookupByLibrary.simpleMessage("Language"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
     "theme": MessageLookupByLibrary.simpleMessage("Theme"),
+    "theme_options": MessageLookupByLibrary.simpleMessage("Theme options"),
     "write_journal": MessageLookupByLibrary.simpleMessage("write journal"),
   };
 }

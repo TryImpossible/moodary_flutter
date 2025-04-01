@@ -12,6 +12,7 @@
   "follow_system": "系統預設",
 
   "theme": "主題",
+  "theme_options": "主題選項",
   "light": "淺色",
   "dark": "深色"
 }

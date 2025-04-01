@@ -63,7 +63,7 @@ class _ThemeOptionsList extends ConsumerWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 14),
               child: Text(
-                context.string.language_options,
+                context.string.theme_options,
                 style: TextStyle(color: context.color.secondaryText),
               ),
             ),

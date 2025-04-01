@@ -12,6 +12,7 @@
   "follow_system": "Automatic",
 
   "theme": "Theme",
+  "theme_options": "Theme options",
   "light": "light",
   "dark": "dark"
 }

@@ -105,6 +105,16 @@ class AppLocalizations {
     return Intl.message('Theme', name: 'theme', desc: '', args: []);
   }
 
+  /// `Theme options`
+  String get theme_options {
+    return Intl.message(
+      'Theme options',
+      name: 'theme_options',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `light`
   String get light {
     return Intl.message('light', name: 'light', desc: '', args: []);

@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mulit_language": MessageLookupByLibrary.simpleMessage("多语言"),
     "settings": MessageLookupByLibrary.simpleMessage("设置"),
     "theme": MessageLookupByLibrary.simpleMessage("主题"),
+    "theme_options": MessageLookupByLibrary.simpleMessage("主题选项"),
     "write_journal": MessageLookupByLibrary.simpleMessage("写手账"),
   };
 }
