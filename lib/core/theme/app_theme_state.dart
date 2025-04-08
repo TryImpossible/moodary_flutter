@@ -3,7 +3,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:moodary_flutter/config/resources/resources.dart';
 import 'package:moodary_flutter/config/theme/app_theme_dark.dart';
 import 'package:moodary_flutter/config/theme/app_theme_light.dart';
-import 'package:moodary_flutter/core/theme/app_color.dart';
+import 'package:moodary_flutter/core/theme/app_theme_colors.dart';
 
 part 'app_theme_state.freezed.dart';
 
@@ -52,7 +52,7 @@ class AppThemeState with _$AppThemeState {
 
   const AppThemeState._();
 
-  AppColor get color {
+  AppThemeColors get color {
     return switch (style) {
       ThemeStyle.light => AppThemeLight.color,
       ThemeStyle.dark => AppThemeDark.color,
