@@ -22,6 +22,7 @@ export 'button/app_outlined_button.dart';
 export 'button/app_text_button.dart';
 export 'image/app_asset_image.dart';
 export 'image/app_avatar.dart';
+export 'image/app_file_image.dart';
 export 'image/app_image.dart';
 export 'image/app_network_image.dart';
 export 'overlay/app_alert_dialog.dart';
