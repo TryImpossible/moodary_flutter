@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moodary_flutter/core/router/app_router.dart';
+import 'package:moodary_flutter/features/diary/presentation/diary_editor/diary_editor_screen.dart';
 import 'package:moodary_flutter/features/settings/presentation/language_settings/language_settings_screen.dart';
 import 'package:moodary_flutter/features/settings/presentation/settings/settings_screen.dart';
 import 'package:moodary_flutter/features/settings/presentation/theme_settings/theme_settings_screen.dart';
@@ -9,6 +10,16 @@ import 'app_route_name.dart';
 abstract class AppRouteTable {
   static List<AppRoute> get routes => _routes;
   static final List<AppRoute> _routes = <AppRoute>[
+    AppRoute(
+      path: AppRouteName.diaryEditor.path,
+      name: AppRouteName.diaryEditor.name,
+      pageBuilder: (_, AppRouterState state) {
+        return _TransitionPage(
+          name: AppRouteName.diaryEditor.name,
+          child: const DiaryEditorScreen(),
+        );
+      },
+    ),
     AppRoute(
       path: AppRouteName.settings.path,
       name: AppRouteName.settings.name,

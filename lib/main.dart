@@ -21,7 +21,7 @@ void main() async {
   GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   AppRouter.getDefault()
       .setNavigatorKey(navigatorKey)
-      .setInitialRoute(AppRouteName.settings.path)
+      .setInitialRoute(AppRouteName.diaryEditor.path)
       .registerRoutes(AppRouteTable.routes)
       .addObserver(LogNavObserver());
   runApp(const ProviderScope(child: App()));
@@ -34,6 +34,8 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final AppThemeState themeState = ref.watch(appThemeProvider);
     final AppL10nState l10nState = ref.watch(appL10nProvider);
+    final AppL10n appL10n = ProviderScope.containerOf(context, listen: false).read(appL10nProvider.notifier);
+    print('appL10n: $appL10n');
     return MaterialApp.router(
       onGenerateTitle: (BuildContext context) => context.string.app_name,
       theme: themeState.theme,
