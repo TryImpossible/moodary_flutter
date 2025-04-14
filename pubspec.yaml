@@ -47,12 +47,19 @@ dependencies:
   json_annotation: ^4.9.0
 
   shared_preferences: ^2.3.3
+  flutter_easyloading: ^3.0.5
+  pull_to_refresh_flutter3: ^2.0.2
+  extended_image: ^9.1.0
 
 dependency_overrides:
   shared_preferences:
     git:
       url: "https://gitcode.com/openharmony-sig/flutter_packages.git"
       path: "packages/shared_preferences/shared_preferences"
+  path_provider:
+    git:
+      url: "https://gitcode.com/openharmony-sig/flutter_packages.git"
+      path: "packages/path_provider/path_provider"
 
 dev_dependencies:
   flutter_test:
@@ -114,6 +121,8 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  assets:
+    - assets/images/ui/
 
 flutter_intl:
   enabled: true
